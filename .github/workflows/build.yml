@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build
         run: |
-          xcodebuild -project "Hidden Bar.xcodeproj" -scheme "Hidden Bar" -configuration Release build MACOSX_DEPLOYMENT_TARGET=10.13 CODE_SIGNING_ALLOWED=NO
+          xcodebuild -project "Hidden Bar.xcodeproj" -scheme "Hidden Bar" -configuration Release build MACOSX_DEPLOYMENT_TARGET=10.13 CODE_SIGNING_ALLOWED=NO -derivedDataPath build
       - uses: actions/upload-artifact@v4
         with:
           name: HiddenBar
-          path: build/Build/Products/Release/Hidden\ Bar.app
+          path: build/Build/Products/Release/Hidden Bar.app
