@@ -1,0 +1,15 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: xcodebuild -project "Hidden Bar.xcodeproj" -scheme "Hidden Bar" -configuration Release build CODE_SIGNING_ALLOWED=NO
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HiddenBar
+          path: build/Build/Products/Release/Hidden\ Bar.app
