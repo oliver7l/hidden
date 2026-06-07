@@ -8,7 +8,9 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - run: xcodebuild -project "Hidden Bar.xcodeproj" -scheme "Hidden Bar" -configuration Release build CODE_SIGNING_ALLOWED=NO
+      - name: Build
+        run: |
+          xcodebuild -project "Hidden Bar.xcodeproj" -scheme "Hidden Bar" -configuration Release build MACOSX_DEPLOYMENT_TARGET=10.13 CODE_SIGNING_ALLOWED=NO
       - uses: actions/upload-artifact@v4
         with:
           name: HiddenBar
